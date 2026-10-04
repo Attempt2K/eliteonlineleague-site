@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Elite Online League: an old-school top-down team shooter, rebuilt modern. Bases, flags, bounty on every head. In development.">
+<meta property="og:title" content="Elite Online League">
+<meta property="og:description" content="Every kill has a price on its head. A top-down team shooter in development.">
+<meta property="og:image" content="https://eliteonlineleague.com/img/compound.jpg">
+<title>Elite Online League</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&family=Barlow+Semi+Condensed:wght@500;700&family=Archivo:wght@400;500;600&family=VT323&display=swap">
+<style>
+/* Layout: a night-time briefing - full-bleed firefight hero under sodium light, a ruled dossier of what the game is, a green-phosphor terminal for the lore, then the screenshots and the way to follow. Dark by design. */
+:root {
+  --night: #0d1011; --asphalt: #161b1d; --panel: #1b2124; --rule: #2b3336;
+  --text: #e9ece8; --dim: #a3aca8; --sodium: #f3a33c; --sodium-ink: #1a1206;
+  --phosphor: #8dfc9f; --red: #e2483c; --blue: #4a86f2; --silver: #c9d1d6;
+  --stencil: "Saira Stencil One", "Impact", "Arial Narrow", sans-serif;
+  --head: "Barlow Semi Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --body: "Archivo", "Segoe UI", system-ui, sans-serif;
+  --crt: "VT323", "Lucida Console", Consolas, monospace;
+  color-scheme: dark;
+}
+body { background: var(--night); color: var(--text); font-family: var(--body); font-size: 17px; line-height: 1.6; }
+a { color: var(--sodium); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--sodium); outline-offset: 3px; }
+.hero { position: relative; min-height: 78vh; display: grid; align-items: end; overflow: hidden; }
+.hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; max-width: none; filter: saturate(1.05) contrast(1.05); }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13,16,17,.15) 0%, rgba(13,16,17,.35) 45%, var(--night) 96%); }
+.hero-inner { position: relative; z-index: 1; width: 100%; max-width: 1100px; margin: 0 auto; padding-inline: 16px; padding-block: 64px 48px; display: grid; gap: 14px; }
+.eyebrow { font-family: var(--head); font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--sodium); font-size: .9rem; }
+h1 { font-family: var(--stencil); font-weight: 400; font-size: clamp(2.6rem, 9vw, 6.2rem); line-height: .92; margin: 0; letter-spacing: .01em; text-wrap: balance; text-shadow: 0 2px 24px rgba(0,0,0,.6); }
+.tagline { font-family: var(--head); font-weight: 500; font-size: clamp(1.25rem, 3vw, 1.75rem); margin: 0; max-width: 34ch; text-wrap: balance; }
+.lede { color: var(--dim); max-width: 60ch; margin: 0; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--head); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; padding: 11px 18px; border-radius: 2px; border: 2px solid var(--sodium); }
+.btn.solid { background: var(--sodium); color: var(--sodium-ink); }
+.btn.ghost { color: var(--sodium); background: rgba(13,16,17,.55); }
+main { max-width: 1100px; margin: 0 auto; padding-inline: 16px; padding-block: 24px 72px; display: grid; gap: 72px; }
+h2 { font-family: var(--head); font-weight: 700; text-transform: uppercase; letter-spacing: .14em; font-size: 1rem; color: var(--sodium); margin: 0 0 18px; }
+.dossier { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0 48px; border-top: 2px solid var(--rule); }
+.item { padding-block: 18px; border-bottom: 1px solid var(--rule); display: grid; gap: 4px; min-width: 0; }
+.item h3 { font-family: var(--head); font-weight: 700; font-size: 1.35rem; margin: 0; letter-spacing: .02em; }
+.item p { margin: 0; color: var(--dim); }
+.classes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.chip { font-family: var(--head); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; font-size: .78rem; padding: 2px 9px; background: #000; border-left: 4px solid currentColor; }
+.chip.red { color: var(--red); } .chip.blue { color: var(--blue); } .chip.silver { color: var(--silver); }
+.lore { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 36px; align-items: center; }
+@media (max-width: 760px) { .lore { grid-template-columns: minmax(0, 1fr); } }
+.lore p { margin: 0 0 12px; color: var(--dim); max-width: 60ch; }
+.crt { background: #050806; border: 2px solid #1f2a22; border-radius: 10px; padding: 22px 24px; font-family: var(--crt); color: var(--phosphor); font-size: 1.35rem; line-height: 1.35; box-shadow: inset 0 0 40px rgba(141,252,159,.07), 0 0 0 6px #121614; text-shadow: 0 0 6px rgba(141,252,159,.45); min-width: 0; overflow-wrap: anywhere; }
+.crt .line { display: block; }
+.crt .cursor { display: inline-block; width: .6em; height: 1em; background: var(--phosphor); vertical-align: -0.12em; animation: blink 1.1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .crt .cursor { animation: none; } }
+figure { margin: 0; display: grid; gap: 8px; }
+figure img { width: 100%; height: auto; border: 1px solid var(--rule); display: block; }
+figcaption { color: var(--dim); font-size: .9rem; }
+.shots { display: grid; gap: 22px; }
+.follow { background: var(--panel); border-left: 4px solid var(--sodium); padding: 24px; display: grid; gap: 10px; }
+.follow p { margin: 0; color: var(--dim); max-width: 62ch; }
+.addr { font-family: var(--crt); font-size: 1.4rem; color: var(--text); user-select: all; }
+footer { border-top: 1px solid var(--rule); color: var(--dim); font-size: .85rem; }
+footer div { max-width: 1100px; margin: 0 auto; padding-inline: 16px; padding-block: 22px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+</style>
+</head>
+<body>
+<section class="hero" aria-label="Elite Online League">
+  <img src="img/compound.jpg" alt="A walled military compound at dusk with lit wall strips, a town's shopfronts along the top edge and grass to the east">
+  <div class="hero-inner">
+    <span class="eyebrow">Top-down team warfare &middot; in development &middot; early build footage</span>
+    <h1>Elite Online League</h1>
+    <p class="tagline">Every kill has a price on its head.</p>
+    <p class="lede">An old-school top-down team shooter, rebuilt modern. Hold the bases, run the flags, hunt the biggest bounty on the board, and fight beside a hundred soldiers who think.</p>
+    <div class="cta">
+      <a class="btn solid" href="#follow">Follow the build</a>
+      <a class="btn ghost" href="#lore">The story</a>
+    </div>
+  </div>
+</section>
+
+<main>
+  <section aria-labelledby="what">
+    <h2 id="what">What it is</h2>
+    <div class="dossier">
+      <div class="item"><h3>Bounty on every head</h3><p>Kill and your bounty climbs. The higher it gets, the more you are worth to everyone else. Be the big dog on the leaderboard, or the one who brings him down.</p></div>
+      <div class="item"><h3>Bases and flags</h3><p>Walled compounds with gates, corridors and turret pads. Take the flags, hold them all, and survive the countdown.</p></div>
+      <div class="item"><h3>A hundred soldiers who think</h3><p>Squads with leaders, medics who come when you are hit, defenders, raiders and flag runners. Bots that dodge your grenades and push you out of doorways.</p></div>
+      <div class="item"><h3>One rifle, every round</h3><p>A three-round burst, rifle grenades, and grenades you lob over sandbags that bounce twice and off the walls before they go off.</p></div>
+      <div class="item"><h3>Classes you read at a glance</h3><p>Every class has its own colour on every team's suit, so you know what you are facing before the first shot.</p>
+        <div class="classes"><span class="chip red">Soldier</span><span class="chip blue">Heavy</span><span class="chip silver">Scout</span></div></div>
+      <div class="item"><h3>The repulsor</h3><p>Turn incoming fire back on the shooter, or throw a charge behind an enemy and shove him straight into your squad's guns.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="looks">
+    <h2 id="looks">First looks</h2>
+    <div class="shots">
+      <figure><img src="img/wetroad.jpg" alt="A rain-wet road at night under a street lamp, shopfronts with glowing signs along the sidewalk" loading="lazy"><figcaption>The town's main street after rain. Early build, lighting test.</figcaption></figure>
+      <figure><img src="img/townnight.jpg" alt="A row of small-town shops at night with lit windows and neon signs, street lamps reflecting on the road" loading="lazy"><figcaption>The shops on the edge of the battlefield. Early build, lighting test.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="lore" aria-labelledby="lore">
+    <div>
+      <h2 id="lore">The story so far</h2>
+      <p>A space company's ship comes down outside a small Michigan town in the autumn of 1992: sodium streetlights, rental stores, white desktop computers and BMX bikes.</p>
+      <p>Something got out of the wreck. It learns to look like the people it takes. Now the town is a battlefield, the company wants its cargo back, and there is a price on everyone.</p>
+    </div>
+    <div class="crt" role="img" aria-label="A green computer terminal showing an incident report from October 1992">
+      <span class="line">&gt; INCIDENT REPORT 92-1017</span>
+      <span class="line">&gt; LOCATION: LANSING, MI</span>
+      <span class="line">&gt; OBJECT DOWN 0214 HRS</span>
+      <span class="line">&gt; CONTAINMENT: FAILED</span>
+      <span class="line">&gt; RESIDENTS ACCOUNTED: 1,204 OF 1,206</span>
+      <span class="line">&gt; DO NOT TRUST THE COUNT<span class="cursor" aria-hidden="true"></span></span>
+    </div>
+  </section>
+
+
+  <section id="follow" class="follow" aria-labelledby="followh">
+    <h2 id="followh">Follow the build</h2>
+    <p>Elite Online League is being built now. A Discord and a development log are coming. Until then, write to us and we will keep you posted:</p>
+    <span class="addr">contact@eliteonlineleague.com</span>
+  </section>
+</main>
+
+<footer><div><span>&copy; 2026 Elite Online League</span><span>eliteonlineleague.com</span></div></footer>
+</body>
+</html>
