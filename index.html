@@ -41,12 +41,12 @@ h1 { font-family: var(--stencil); font-weight: 400; font-size: clamp(2.6rem, 9vw
 main { max-width: 1100px; margin: 0 auto; padding-inline: 16px; padding-block: 24px 72px; display: grid; gap: 72px; }
 h2 { font-family: var(--head); font-weight: 700; text-transform: uppercase; letter-spacing: .14em; font-size: 1rem; color: var(--sodium); margin: 0 0 18px; }
 .dossier { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0 48px; border-top: 2px solid var(--rule); }
-.item { padding-block: 18px; border-bottom: 1px solid var(--rule); display: grid; gap: 4px; min-width: 0; }
+.item { padding-block: 18px; border-bottom: 1px solid var(--rule); display: grid; gap: 4px; min-width: 0; align-content: start; }
 .item h3 { font-family: var(--head); font-weight: 700; font-size: 1.35rem; margin: 0; letter-spacing: .02em; }
 .item p { margin: 0; color: var(--dim); }
 .classes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
 .chip { font-family: var(--head); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; font-size: .78rem; padding: 2px 9px; background: #000; border-left: 4px solid currentColor; }
-.chip.red { color: var(--red); } .chip.blue { color: var(--blue); } .chip.silver { color: var(--silver); }
+.chip.soldier { color: #ff3b24; } .chip.heavy { color: #9070ff; } .chip.medic { color: #b2ff00; } .chip.engineer { color: #ff7a14; } .chip.infiltrator { color: #ec3cc8; } .chip.major { color: var(--silver); }
 .lore { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 36px; align-items: center; }
 @media (max-width: 760px) { .lore { grid-template-columns: minmax(0, 1fr); } }
 .lore p { margin: 0 0 12px; color: var(--dim); max-width: 60ch; }
@@ -58,7 +58,9 @@ h2 { font-family: var(--head); font-weight: 700; text-transform: uppercase; lett
 figure { margin: 0; display: grid; gap: 8px; }
 figure img { width: 100%; height: auto; border: 1px solid var(--rule); display: block; }
 figcaption { color: var(--dim); font-size: .9rem; }
-.shots { display: grid; gap: 22px; }
+.shots { display: grid; gap: 22px; align-content: start; }
+.shots-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+@media (max-width: 760px) { .shots-pair { grid-template-columns: minmax(0, 1fr); } }
 .follow { background: var(--panel); border-left: 4px solid var(--sodium); padding: 24px; display: grid; gap: 10px; }
 .follow p { margin: 0; color: var(--dim); max-width: 62ch; }
 .addr { font-family: var(--crt); font-size: 1.4rem; color: var(--text); user-select: all; }
@@ -88,18 +90,25 @@ footer div { max-width: 1100px; margin: 0 auto; padding-inline: 16px; padding-bl
       <div class="item"><h3>Bounty on every head</h3><p>Kill and your bounty climbs. The higher it gets, the more you are worth to everyone else. Be the big dog on the leaderboard, or the one who brings him down.</p></div>
       <div class="item"><h3>Bases and flags</h3><p>Walled compounds with gates, corridors and turret pads. Take the flags, hold them all, and survive the countdown.</p></div>
       <div class="item"><h3>A hundred soldiers who think</h3><p>Squads with leaders, medics who come when you are hit, defenders, raiders and flag runners. Bots that dodge your grenades and push you out of doorways.</p></div>
-      <div class="item"><h3>One rifle, every round</h3><p>A three-round burst, rifle grenades, and grenades you lob over sandbags that bounce twice and off the walls before they go off.</p></div>
-      <div class="item"><h3>Classes you read at a glance</h3><p>Every class has its own colour on every team's suit, so you know what you are facing before the first shot.</p>
-        <div class="classes"><span class="chip red">Soldier</span><span class="chip blue">Heavy</span><span class="chip silver">Scout</span></div></div>
-      <div class="item"><h3>The repulsor</h3><p>Turn incoming fire back on the shooter, or throw a charge behind an enemy and shove him straight into your squad's guns.</p></div>
+      <div class="item"><h3>Classes you read at a glance</h3><p>Your team's colour is on your suit and your class's colour is on your armour plates, so you know what you are facing before the first shot.</p>
+        <div class="classes"><span class="chip soldier">Soldier</span><span class="chip heavy">Heavy</span><span class="chip medic">Medic</span><span class="chip engineer">Engineer</span><span class="chip infiltrator">Infiltrator</span><span class="chip major">Major</span></div></div>
+      <div class="item"><h3>Gear up at the store</h3><p>Rifles, shotguns, autocannons and plasma cannons, each in several models with their own price, sound and stats. Ammo runs out and grenades are five to a trip, so you call the dropship back to restock.</p></div>
+      <div class="item"><h3>Build the base</h3><p>Engineers carry turret crates and wall kits. Put up machine-gun turrets and walls where the fight is, and hold them until someone shoots them down.</p></div>
+      <div class="item"><h3>Send it back</h3><p>Turn incoming fire back on the shooter, or throw a charge behind an enemy and shove him straight into your squad's guns.</p></div>
     </div>
   </section>
 
   <section aria-labelledby="looks">
     <h2 id="looks">First looks</h2>
     <div class="shots">
-      <figure><img src="img/wetroad.jpg" alt="A rain-wet road at night under a street lamp, shopfronts with glowing signs along the sidewalk" loading="lazy"><figcaption>The town's main street after rain. Early build, lighting test.</figcaption></figure>
-      <figure><img src="img/townnight.jpg" alt="A row of small-town shops at night with lit windows and neon signs, street lamps reflecting on the road" loading="lazy"><figcaption>The shops on the edge of the battlefield. Early build, lighting test.</figcaption></figure>
+      <figure><img src="img/soldiers.jpg" width="1715" height="360" alt="Seven armoured soldiers seen from above, alternating black and white suits, with red, cyan, pink and green helmets and shoulder plates" loading="lazy"><figcaption>The soldiers up close: one team in black, one in white, with the class colour on the plates. Early build; colours not final.</figcaption></figure>
+      <div class="shots-pair">
+        <figure><img src="img/battlefield.jpg" width="1024" height="1024" alt="A top-down map: base A in the south-west, base B in the north-east, a walled compound in the middle, and a row of shops along the road" loading="lazy"><figcaption>The test battlefield from above: base A, base B, the compound between them and the shops along the road. Early build.</figcaption></figure>
+        <div class="shots">
+          <figure><img src="img/wetroad.jpg" width="1600" height="733" alt="A rain-wet road at night under a street lamp, shopfronts with glowing signs along the sidewalk" loading="lazy"><figcaption>The town's main street after rain. Lighting test.</figcaption></figure>
+          <figure><img src="img/townnight.jpg" width="1600" height="458" alt="A row of small-town shops at night with lit windows and neon signs, street lamps reflecting on the road" loading="lazy"><figcaption>The shops on the edge of the battlefield. Lighting test.</figcaption></figure>
+        </div>
+      </div>
     </div>
   </section>
 
