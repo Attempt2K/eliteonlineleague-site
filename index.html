@@ -8,6 +8,9 @@
 <meta property="og:description" content="Every kill has a price on its head. A top-down team shooter in development.">
 <meta property="og:image" content="https://eliteonlineleague.com/img/fight.jpg">
 <title>Elite Online League</title>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="img/logo.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&family=Barlow+Semi+Condensed:wght@500;700&family=Archivo:wght@400;500;600&family=VT323&display=swap">
@@ -31,6 +34,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--sodium); outlin
 .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; max-width: none; filter: saturate(1.05) contrast(1.05); }
 .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13,16,17,.15) 0%, rgba(13,16,17,.35) 45%, var(--night) 96%); }
 .hero-inner { position: relative; z-index: 1; width: 100%; max-width: 1100px; margin: 0 auto; padding-inline: 16px; padding-block: 64px 48px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
+.hero .logo { position: static; width: clamp(120px, 18vw, 180px); height: auto; filter: drop-shadow(0 6px 18px rgba(0,0,0,.55)); }
 .eyebrow { font-family: var(--head); font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--sodium); font-size: .9rem; }
 h1 { font-family: var(--stencil); font-weight: 400; font-size: clamp(2.1rem, 9vw, 6.2rem); line-height: .92; margin: 0; letter-spacing: .01em; text-wrap: balance; text-shadow: 0 2px 24px rgba(0,0,0,.6); }
 .tagline { font-family: var(--head); font-weight: 500; font-size: clamp(1.25rem, 3vw, 1.75rem); margin: 0; max-width: 34ch; text-wrap: balance; }
@@ -73,6 +77,7 @@ footer div { max-width: 1100px; margin: 0 auto; padding-inline: 16px; padding-bl
 <section class="hero" aria-label="Elite Online League">
   <img src="img/hero.jpg" alt="A night firefight at the gate of base B seen from above: tracers and a blast ring inside the walls, with a row of lit shopfronts below">
   <div class="hero-inner">
+    <img class="logo" src="img/logo.png" width="512" height="512" alt="EOL '92 logo: chunky EOL letters on a blue and green globe, Elite Online League around the bottom">
     <span class="eyebrow">Top-down team warfare &middot; in development &middot; early build footage</span>
     <h1>Elite Online League</h1>
     <p class="tagline">Every kill has a price on its head.</p>
