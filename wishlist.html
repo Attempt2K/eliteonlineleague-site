@@ -56,6 +56,8 @@ h2 { font-family: var(--head); font-weight: 700; text-transform: uppercase; lett
 .card.bought .tag { color: var(--silver); }
 .btn { justify-self: start; display: inline-flex; align-items: center; font-family: var(--head); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; padding: 9px 14px; border-radius: 2px; border: 2px solid var(--sodium); background: var(--sodium); color: var(--sodium-ink); margin-top: 4px; }
 .card.funded .btn, .card.bought .btn { display: none; }
+.looking { margin: 0; padding-left: 20px; color: var(--dim); display: grid; gap: 6px; }
+.looking b { color: var(--text); font-weight: 600; }
 footer { border-top: 1px solid var(--rule); color: var(--dim); font-size: .85rem; margin-top: 64px; }
 footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; padding-block: 22px; }
 </style>
@@ -102,10 +104,14 @@ const ITEMS = [
   { group: "next",  name: "Run-down video store",      price: 9.99,   adds: "A faded 90s video rental store for the edge of town.",                       where: "Blockbusted, Fab", link: "https://www.fab.com/listings/1ef954da-bc5f-4cee-b24b-26caf3c11e63", status: "wanted" },
   { group: "next",  name: "Military containers",       price: 34.99,  adds: "Supply containers and crates to dress the bases and give cover.",            where: "Military Supplies Vol. 7, Dekogon, Fab", link: "https://www.fab.com/listings/acbb904c-6e82-4136-9ff7-11c8432930b3", status: "wanted" },
   { group: "next",  name: "Wizard hat",                price: 5.99,   adds: "A wizard hat. You'll see.",                                                   where: "Wizard Hat, Fab", link: "https://www.fab.com/listings/d8d022be-512a-42f8-bc67-2cbdf8e2ac6b", status: "wanted" },
-  { group: "later", name: "1970s city alley",          price: 69.99,  adds: "Gritty back alleys, fire escapes and street props for the town's edges.",     where: "1970s New York City Alley, Fab (made for Unreal; we convert it)", link: "https://www.fab.com/listings/5892b635-1e27-4942-812b-3ed2c622b1d5", status: "wanted" },
-  { group: "later", name: "Baseball stadium",          price: 39.99,  adds: "A stadium to fight across: stands, dugouts and an open field.",              where: "Baseball Stadium, Fab (made for Unreal; we convert it)", link: "https://www.fab.com/listings/89754a76-79a6-4cec-992c-a538b1325d38", status: "wanted" },
-  { group: "later", name: "Asteroid base",             price: 79.99,  adds: "A sci-fi base kit: modular walls, rocks and props for a space map.",          where: "Asteroid Base kit, Fab (made for Unreal; we convert it)", link: "https://www.fab.com/listings/43772f4e-3f3e-4363-b337-b74abd1d8dac", status: "wanted" },
   { group: "later", name: "Full rifle motion capture", price: 149.99, adds: "Hundreds of professional rifle moves: walks, strafes, crouches and aims.",     where: "MoCap Online Rifle pack", status: "wanted" },
+  { group: "later", name: "A soldier of our own",      price: 3500,   adds: "A one-of-a-kind trooper made only for Elite Online League: our own look, owned outright.", where: "Commissioned from a freelance character artist; the price is a starting estimate", status: "wanted" },
+];
+// What we're still looking for: no listing yet that works in our engine.
+const LOOKING = [
+  ["A gritty city alley", "back alleys, fire escapes, dumpsters and street props for the town's edges"],
+  ["A stadium", "stands, dugouts and an open field to fight across"],
+  ["A sci-fi base kit", "modular walls, rocks and props for a space or asteroid map"],
 ];
 const GROUPS = {
   now:   ["Now: the fight", "What makes the first 30 seconds of a fight look and feel right."],
@@ -136,6 +142,11 @@ for (const [key, [title, note]] of Object.entries(GROUPS)) {
   }
   sec.append(grid); root.append(sec);
 }
+const look = el("section"); look.setAttribute("aria-label", "Still looking for");
+look.append(el("h2", null, "Still looking for"), el("p", "group-note", "We want these too, but haven't found a version that works in our engine yet. Know a good one? Tell us."));
+const ul = el("ul", "looking");
+for (const [what, why] of LOOKING) { const li = el("li"); li.append(el("b", null, what), document.createTextNode(": " + why)); ul.append(li); }
+look.append(ul); root.append(look);
 </script>
 </body>
 </html>
