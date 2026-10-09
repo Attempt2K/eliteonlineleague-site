@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="The Elite Online League wishlist: the art, animation and sound that would make the game better, and how to help fund each piece.">
+<meta property="og:title" content="Elite Online League: the wishlist">
+<meta property="og:description" content="Help fund the next piece of the game. Every item, what it adds, and what it costs.">
+<meta property="og:image" content="https://eliteonlineleague.com/img/fight.jpg">
+<title>EOL Wishlist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&family=Barlow+Semi+Condensed:wght@500;700&family=Archivo:wght@400;500;600&family=VT323&display=swap">
+<style>
+/* Layout: the landing page's night briefing, as a requisition sheet - a short header, the running total, then one ruled card per item grouped by when the game needs it. */
+:root {
+  --night: #0d1011; --asphalt: #161b1d; --panel: #1b2124; --rule: #2b3336;
+  --text: #e9ece8; --dim: #a3aca8; --sodium: #f3a33c; --sodium-ink: #1a1206;
+  --phosphor: #8dfc9f; --silver: #c9d1d6;
+  --stencil: "Saira Stencil One", "Impact", "Arial Narrow", sans-serif;
+  --head: "Barlow Semi Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --body: "Archivo", "Segoe UI", system-ui, sans-serif;
+  --crt: "VT323", "Lucida Console", Consolas, monospace;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--night); color: var(--text); font-family: var(--body); font-size: 17px; line-height: 1.6; }
+a { color: var(--sodium); }
+a:focus-visible { outline: 2px solid var(--sodium); outline-offset: 3px; }
+.wrap { max-width: 1100px; margin: 0 auto; padding-inline: 16px; }
+header { border-bottom: 1px solid var(--rule); }
+header .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; justify-content: space-between; padding-block: 16px; }
+.brand { font-family: var(--stencil); font-size: 1.5rem; color: var(--text); text-decoration: none; }
+.top { padding-block: 48px 24px; display: grid; gap: 14px; }
+.eyebrow { font-family: var(--head); font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--sodium); font-size: .9rem; }
+h1 { font-family: var(--stencil); font-weight: 400; font-size: clamp(2.1rem, 7vw, 4.4rem); line-height: .95; margin: 0; }
+.lede { color: var(--dim); max-width: 64ch; margin: 0; }
+.how { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0 32px; border-top: 2px solid var(--rule); margin-top: 10px; }
+.how div { padding-block: 14px; border-bottom: 1px solid var(--rule); }
+.how b { font-family: var(--head); font-size: 1.1rem; display: block; }
+.how span { color: var(--dim); font-size: .95rem; }
+.total { display: flex; flex-wrap: wrap; gap: 8px 28px; align-items: baseline; font-family: var(--crt); font-size: 1.35rem; color: var(--phosphor); padding-block: 18px; }
+h2 { font-family: var(--head); font-weight: 700; text-transform: uppercase; letter-spacing: .14em; font-size: 1rem; color: var(--sodium); margin: 40px 0 6px; }
+.group-note { color: var(--dim); margin: 0 0 14px; max-width: 64ch; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 16px; }
+.card { background: var(--panel); border-left: 4px solid var(--sodium); padding: 18px 18px 16px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.card.funded { border-left-color: var(--phosphor); }
+.card.bought { border-left-color: var(--silver); opacity: .8; }
+.row { display: flex; gap: 12px; justify-content: space-between; align-items: baseline; }
+.card h3 { font-family: var(--head); font-weight: 700; font-size: 1.3rem; margin: 0; line-height: 1.2; }
+.price { font-family: var(--crt); font-size: 1.5rem; color: var(--text); white-space: nowrap; }
+.adds { margin: 0; color: var(--text); }
+.meta { margin: 0; color: var(--dim); font-size: .88rem; }
+.tag { font-family: var(--head); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; font-size: .75rem; color: var(--sodium); }
+.card.funded .tag { color: var(--phosphor); }
+.card.bought .tag { color: var(--silver); }
+.btn { justify-self: start; display: inline-flex; align-items: center; font-family: var(--head); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; padding: 9px 14px; border-radius: 2px; border: 2px solid var(--sodium); background: var(--sodium); color: var(--sodium-ink); margin-top: 4px; }
+.card.funded .btn, .card.bought .btn { display: none; }
+footer { border-top: 1px solid var(--rule); color: var(--dim); font-size: .85rem; margin-top: 64px; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; padding-block: 22px; }
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="/">Elite Online League</a><a href="https://ko-fi.com/eliteonlineleague" target="_blank" rel="noopener">Support on Ko-fi</a></div></header>
+
+<main class="wrap">
+  <section class="top" aria-labelledby="t">
+    <span class="eyebrow">The wishlist &middot; what the game needs next</span>
+    <h1 id="t">Help build the next piece</h1>
+    <p class="lede">These are the art, animation and sound packs that would make Elite Online League look, move and sound better. Each one says what it adds to the game and what it costs. Fund the one you like, and when it's in the game you'll see it here with a screenshot.</p>
+    <div class="how">
+      <div><b>1. Pick an item</b><span>Anything below, big or small.</span></div>
+      <div><b>2. Tip on Ko-fi</b><span>Write the item's name in your message, for example "for the houses".</span></div>
+      <div><b>3. See it in the game</b><span>Funded items get bought, built in and shown off here.</span></div>
+    </div>
+    <div class="total" aria-live="polite"><span id="sum"></span><span id="count"></span></div>
+  </section>
+
+  <div id="groups"></div>
+</main>
+
+<footer><div class="wrap"><span>&copy; 2026 Elite Online League</span><a href="/">eliteonlineleague.com</a></div></footer>
+
+<script>
+// The wishlist. To add an item, copy a line and change it. status: "wanted", "funded" or "bought".
+// group: "now" (the fight), "next" (the town and the match), "later" (big buys).
+const KOFI = "https://ko-fi.com/eliteonlineleague";
+const ITEMS = [
+  { group: "now",   name: "Rifle movement animations", price: 50,     adds: "Soldiers that start, stop and turn naturally instead of snapping between runs.", where: "Rifle Animset Pro, Unity Asset Store", status: "wanted" },
+  { group: "now",   name: "Heavy armour pack",         price: 29.99,  adds: "A bulkier, unmistakable Heavy class you can spot across the map.",           where: "Sci-Fi Military Armor Pack 05, Fab", status: "wanted" },
+  { group: "now",   name: "Sci-fi menu and store art", price: 15,     adds: "A polished store, menus and skills window.",                                  where: "Ultimate Sci-Fi UI Kit, itch.io", status: "wanted" },
+  { group: "now",   name: "Bushes and ground details", price: 15.96,  adds: "Fuller fields and cover, plus real concrete sidewalks in the town.",          where: "Realistic Bushes 1, Grass Clumps, two concrete sets, Fab", status: "wanted" },
+  { group: "next",  name: "Houses you can fight inside", price: 119.99, adds: "Whole neighbourhoods with interiors: room-to-room fights in the town.",    where: "Residential Houses Modular Pack, Fab", link: "https://www.fab.com/listings/01d55fcd-24f2-418b-8723-91b212912257", status: "wanted" },
+  { group: "next",  name: "Neon signs",                price: 37,     adds: "A town that glows at night, and lit trim on the bases.",                     where: "Neon Alphabet, Neon Signs and three sign packs, Fab", status: "wanted" },
+  { group: "next",  name: "Hover tank",                price: 39.99,  adds: "The first vehicle: a hover tank with a turret that turns on its own.",         where: "Tempest Hover Tank, Unity Asset Store", status: "wanted" },
+  { group: "next",  name: "80s police cruiser",        price: 9.99,   adds: "Parked cars on the town's streets, starting with one to test.",              where: "Car 19, Fab", status: "wanted" },
+  { group: "next",  name: "Church and motel",          price: 159.98, adds: "Two landmark buildings to fight around: a church and a roadside motel.",       where: "American Church and Paradise Motel, Fab", status: "wanted" },
+  { group: "next",  name: "Second turret type",        price: 4.99,   adds: "A new kind of turret for engineers to build.",                                where: "Sci-Fi Turrets Pack, itch.io", status: "wanted" },
+  { group: "next",  name: "Rats",                      price: 5.99,   adds: "Rats running through the alleys. Small, but it makes the town feel alive.",  where: "ViciousRat, itch.io", status: "wanted" },
+  { group: "later", name: "Full rifle motion capture", price: 149.99, adds: "Hundreds of professional rifle moves: walks, strafes, crouches and aims.",     where: "MoCap Online Rifle pack", status: "wanted" },
+  { group: "later", name: "Smoke and explosion studio", price: 300,   adds: "Our own matched smoke, fire and explosions, made for this game.",           where: "EmberGen, JangaFX", status: "wanted" },
+  { group: "later", name: "A soldier of our own",      price: 3500,   adds: "A one-of-a-kind trooper made for Elite Online League by a character artist.", where: "Commissioned from a freelance artist; the price is a starting estimate", status: "wanted" },
+];
+const GROUPS = {
+  now:   ["Now: the fight", "What makes the first 30 seconds of a fight look and feel right."],
+  next:  ["Next: the town and the match", "The places, vehicles and details of a full match."],
+  later: ["Later: the big buys", "Larger pieces for when the game is further along."],
+};
+const usd = n => "$" + n.toLocaleString("en-US", { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 });
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+const wanted = ITEMS.filter(i => i.status === "wanted");
+document.getElementById("sum").textContent = "STILL NEEDED: " + usd(wanted.reduce((s, i) => s + i.price, 0));
+document.getElementById("count").textContent = wanted.length + " ITEMS WANTED · " + (ITEMS.length - wanted.length) + " FUNDED";
+const root = document.getElementById("groups");
+for (const [key, [title, note]] of Object.entries(GROUPS)) {
+  const items = ITEMS.filter(i => i.group === key);
+  if (!items.length) continue;
+  const sec = el("section"); sec.setAttribute("aria-label", title);
+  sec.append(el("h2", null, title), el("p", "group-note", note));
+  const grid = el("div", "grid");
+  for (const i of items) {
+    const card = el("article", "card " + i.status);
+    const row = el("div", "row"); row.append(el("h3", null, i.name), el("span", "price", usd(i.price)));
+    const tag = el("span", "tag", i.status === "wanted" ? "Wanted" : i.status === "funded" ? "Funded, thank you" : "In the game");
+    const where = el("p", "meta");
+    if (i.link) { const a = el("a", null, i.where); a.href = i.link; a.target = "_blank"; a.rel = "noopener"; where.append(a); } else where.textContent = i.where;
+    const btn = el("a", "btn", "Fund this"); btn.href = KOFI; btn.target = "_blank"; btn.rel = "noopener";
+    card.append(tag, row, el("p", "adds", i.adds), where, btn);
+    grid.append(card);
+  }
+  sec.append(grid); root.append(sec);
+}
+</script>
+</body>
+</html>
