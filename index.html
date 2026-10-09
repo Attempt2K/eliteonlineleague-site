@@ -23,15 +23,16 @@
   --crt: "VT323", "Lucida Console", Consolas, monospace;
   color-scheme: dark;
 }
-body { background: var(--night); color: var(--text); font-family: var(--body); font-size: 17px; line-height: 1.6; }
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--night); color: var(--text); font-family: var(--body); font-size: 17px; line-height: 1.6; }
 a { color: var(--sodium); }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--sodium); outline-offset: 3px; }
 .hero { position: relative; min-height: 78vh; display: grid; align-items: end; overflow: hidden; }
 .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; max-width: none; filter: saturate(1.05) contrast(1.05); }
 .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13,16,17,.15) 0%, rgba(13,16,17,.35) 45%, var(--night) 96%); }
-.hero-inner { position: relative; z-index: 1; width: 100%; max-width: 1100px; margin: 0 auto; padding-inline: 16px; padding-block: 64px 48px; display: grid; gap: 14px; }
+.hero-inner { position: relative; z-index: 1; width: 100%; max-width: 1100px; margin: 0 auto; padding-inline: 16px; padding-block: 64px 48px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
 .eyebrow { font-family: var(--head); font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--sodium); font-size: .9rem; }
-h1 { font-family: var(--stencil); font-weight: 400; font-size: clamp(2.6rem, 9vw, 6.2rem); line-height: .92; margin: 0; letter-spacing: .01em; text-wrap: balance; text-shadow: 0 2px 24px rgba(0,0,0,.6); }
+h1 { font-family: var(--stencil); font-weight: 400; font-size: clamp(2.1rem, 9vw, 6.2rem); line-height: .92; margin: 0; letter-spacing: .01em; text-wrap: balance; text-shadow: 0 2px 24px rgba(0,0,0,.6); }
 .tagline { font-family: var(--head); font-weight: 500; font-size: clamp(1.25rem, 3vw, 1.75rem); margin: 0; max-width: 34ch; text-wrap: balance; }
 .lede { color: var(--dim); max-width: 60ch; margin: 0; }
 .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
@@ -78,6 +79,7 @@ footer div { max-width: 1100px; margin: 0 auto; padding-inline: 16px; padding-bl
     <p class="lede">An old-school top-down team shooter, rebuilt modern. Hold the bases, run the flags, hunt the biggest bounty on the board, and fight beside a hundred soldiers who think.</p>
     <div class="cta">
       <a class="btn solid" href="#follow">Follow the build</a>
+      <a class="btn ghost" href="https://ko-fi.com/eliteonlineleague" target="_blank" rel="noopener">Support the build</a>
       <a class="btn ghost" href="#lore">The story</a>
     </div>
   </div>
@@ -134,6 +136,8 @@ footer div { max-width: 1100px; margin: 0 auto; padding-inline: 16px; padding-bl
     <h2 id="followh">Follow the build</h2>
     <p>Elite Online League is being built now. A Discord and a development log are coming. Until then, write to us and we will keep you posted:</p>
     <span class="addr">contact@eliteonlineleague.com</span>
+    <p>Want to help build it? Every tip goes straight into the game: art, sound and the tools to put them together.</p>
+    <div class="cta"><a class="btn solid" href="https://ko-fi.com/eliteonlineleague" target="_blank" rel="noopener">Support the build on Ko-fi</a></div>
   </section>
 </main>
 
