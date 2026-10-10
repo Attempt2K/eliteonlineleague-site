@@ -49,7 +49,7 @@ h2 { font-family: var(--head); font-weight: 700; text-transform: uppercase; lett
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 16px; }
 .card { background: var(--panel); border-left: 4px solid var(--sodium); padding: 18px 18px 16px; display: grid; gap: 8px; align-content: start; min-width: 0; }
 .card.funded { border-left-color: var(--phosphor); }
-.card.bought { border-left-color: var(--silver); opacity: .8; }
+.card.bought, .card.ingame { border-left-color: var(--silver); opacity: .8; }
 .row { display: flex; gap: 12px; justify-content: space-between; align-items: baseline; }
 .card h3 { font-family: var(--head); font-weight: 700; font-size: 1.3rem; margin: 0; line-height: 1.2; }
 .price { font-family: var(--crt); font-size: 1.5rem; color: var(--text); white-space: nowrap; }
@@ -57,9 +57,9 @@ h2 { font-family: var(--head); font-weight: 700; text-transform: uppercase; lett
 .meta { margin: 0; color: var(--dim); font-size: .88rem; }
 .tag { font-family: var(--head); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; font-size: .75rem; color: var(--sodium); }
 .card.funded .tag { color: var(--phosphor); }
-.card.bought .tag { color: var(--silver); }
+.card.bought .tag, .card.ingame .tag { color: var(--silver); }
 .btn { justify-self: start; display: inline-flex; align-items: center; font-family: var(--head); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; padding: 9px 14px; border-radius: 2px; border: 2px solid var(--sodium); background: var(--sodium); color: var(--sodium-ink); margin-top: 4px; }
-.card.funded .btn, .card.bought .btn { display: none; }
+.card.funded .btn, .card.bought .btn, .card.ingame .btn { display: none; }
 .looking { margin: 0; padding-left: 20px; color: var(--dim); display: grid; gap: 6px; }
 .looking b { color: var(--text); font-weight: 600; }
 footer { border-top: 1px solid var(--rule); color: var(--dim); font-size: .85rem; margin-top: 64px; }
@@ -88,23 +88,28 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
 <footer><div class="wrap"><span>&copy; 2026 Elite Online League</span><a href="/">eliteonlineleague.com</a></div></footer>
 
 <script>
-// The wishlist. To add an item, copy a line and change it. status: "wanted", "funded" or "bought".
+// The wishlist. To add an item, copy a line and change it.
+// status: "wanted", "funded" (a supporter paid for it), "bought" (bought, going in now) or "ingame" (in the game).
 // group: "now" (the fight), "next" (the town and the match), "later" (big buys).
 const KOFI = "https://ko-fi.com/eliteonlineleague";
 const ITEMS = [
   { group: "now",   name: "Rifle movement animations", price: 50,     adds: "Soldiers that start, stop and turn naturally instead of snapping between runs.", where: "Rifle Animset Pro, Unity Asset Store", status: "wanted" },
   { group: "now",   name: "Sci-fi soldier armour",     price: 29.99,  adds: "Chunky helmets and armour plates that read from above, in your team's and class's colours.", where: "Sci-Fi Military Armor Pack 05, Davlet, Fab", link: "https://www.fab.com/listings/c4c0232a-65c7-491d-8ebb-01ecff05bdde", status: "wanted" },
-  { group: "now",   name: "Turret collection",         price: 34.99,  adds: "Real turrets for engineers to build: bases, heads and barrels for every turret type, in one matching style.", where: "Scifi Turret Collection II, Fab", link: "https://www.fab.com/listings/e37522fc-8b87-42f1-a039-1f8ffc32febf", status: "wanted" },
+  { group: "now",   name: "Turret collection",         price: 34.99,  adds: "Real turrets for engineers to build: bases, heads and barrels for every turret type, in one matching style.", where: "Scifi Turret Collection II, Fab", link: "https://www.fab.com/listings/e37522fc-8b87-42f1-a039-1f8ffc32febf", status: "bought" },
   { group: "now",   name: "Sentry gun",                price: 9.99,   adds: "A compact automatic sentry to round out the turret set.", where: "Modular Turret | Sentry Gun, Fab", link: "https://www.fab.com/listings/630b0138-1723-483a-8e23-4a68062300dd", status: "wanted" },
   { group: "now",   name: "Sci-fi menu and store art", price: 15,     adds: "A polished store, menus and skills window.",                                  where: "Ultimate Sci-Fi UI Kit, itch.io", status: "wanted" },
   { group: "now",   name: "Soldier base body",         price: 49.99,  adds: "A full male and female body to dress our soldiers on: every outfit, armour set and class look starts here.", where: "Quantum Modular Basemesh, Fab", link: "https://www.fab.com/listings/9ce5105d-296b-4a21-a1fa-01a2f25c4a67", status: "wanted" },
   { group: "now",   name: "Commando headband",         price: 9.99,   adds: "The classic action-hero headband, in your team's colour.", where: "Headband, Quantum Assets, Fab", link: "https://www.fab.com/listings/318b4297-9031-43f7-9ba5-f3c4dc32e08a", status: "wanted" },
-  { group: "now",   name: "Bushes and ground details", price: 15.96,  adds: "Fuller fields and cover, plus real concrete sidewalks in the town.",          where: "Realistic Bushes 1, Grass Clumps, two concrete sets, Fab", status: "wanted" },
+  { group: "now",   name: "Melee animations",          price: 23,     adds: "Real sword swings, stabs, lunges and combos for every close-up kill.", where: "Human Melee Animations, Kevin Iglesias (the same rig as our soldiers)", status: "wanted" },
+  { group: "now",   name: "Bushes and grass clumps",   price: 13.98,  adds: "Fuller fields, hedges and cover between the buildings.", where: "Realistic Bushes 1 and Grass Clumps, Fab", status: "wanted" },
+  { group: "now",   name: "Photo-scanned concrete",    price: 1.98,   adds: "Real sidewalks, plazas and pads, scanned from the real thing.", where: "Megascans Concrete Sidewalk and Concrete Pavement, Fab", status: "bought" },
+  { group: "now",   name: "Evil laugh voices",         price: 10,     adds: "70 villain laughs for the Executioner's kills.", where: "Evil Laugh SFX, Dark Fantasy Studio, itch.io", status: "bought" },
   { group: "next",  name: "Houses you can fight inside", price: 119.99, adds: "Whole neighbourhoods with interiors: room-to-room fights in the town.",    where: "Residential Houses Modular Pack, Fab", link: "https://www.fab.com/listings/01d55fcd-24f2-418b-8723-91b212912257", status: "wanted" },
   { group: "next",  name: "Neon signs",                price: 37,     adds: "A town that glows at night, and lit trim on the bases.",                     where: "Neon Alphabet, Neon Signs and three sign packs, Fab", status: "wanted" },
   { group: "next",  name: "Hover tank",                price: 39.99,  adds: "The first vehicle: a hover tank with a turret that turns on its own.",         where: "Tempest Hover Tank, Unity Asset Store", status: "wanted" },
   { group: "next",  name: "80s police cruiser",        price: 9.99,   adds: "Parked cars on the town's streets, starting with one to test.",              where: "Car 19, Fab", status: "wanted" },
-  { group: "next",  name: "Church and motel",          price: 159.98, adds: "Two landmark buildings to fight around: a church and a roadside motel.",       where: "American Church and Paradise Motel, Fab", status: "wanted" },  { group: "next",  name: "Rats",                      price: 5.99,   adds: "Rats running through the alleys. Small, but it makes the town feel alive.",  where: "ViciousRat, itch.io", status: "wanted" },
+  { group: "next",  name: "Church and motel",          price: 159.98, adds: "Two landmark buildings to fight around: a church and a roadside motel.",       where: "American Church and Paradise Motel, Fab", status: "wanted" },
+  { group: "next",  name: "Rats",                      price: 5.99,   adds: "Rats running through the alleys. Small, but it makes the town feel alive.",  where: "ViciousRat, itch.io", status: "wanted" },
   { group: "next",  name: "Cats",                      price: 29.99,  adds: "Stray cats prowling the town, with over 100 animations.",                    where: "Cats - Simple, Fab", link: "https://www.fab.com/listings/4fa9591d-945e-41be-b37b-b39e4539602a", status: "wanted" },
   { group: "next",  name: "Convenience store",         price: 59.99,  adds: "A full corner store with shelves, aisles and stock to fight through.",       where: "Convenience Store, PropHaus, Fab", link: "https://www.fab.com/listings/0d1cf768-2c43-4abe-98d8-5640d6c7903a", status: "wanted" },
   { group: "next",  name: "Run-down video store",      price: 9.99,   adds: "A faded 90s video rental store for the edge of town.",                       where: "Blockbusted, Fab", link: "https://www.fab.com/listings/1ef954da-bc5f-4cee-b24b-26caf3c11e63", status: "wanted" },
@@ -126,7 +131,7 @@ const usd = n => "$" + n.toLocaleString("en-US", { minimumFractionDigits: n % 1 
 const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
 const wanted = ITEMS.filter(i => i.status === "wanted");
 document.getElementById("sum").textContent = "STILL NEEDED: " + usd(wanted.reduce((s, i) => s + i.price, 0));
-document.getElementById("count").textContent = wanted.length + " ITEMS WANTED · " + (ITEMS.length - wanted.length) + " FUNDED";
+document.getElementById("count").textContent = wanted.length + " ITEMS WANTED · " + (ITEMS.length - wanted.length) + " BOUGHT";
 const root = document.getElementById("groups");
 for (const [key, [title, note]] of Object.entries(GROUPS)) {
   const items = ITEMS.filter(i => i.group === key);
@@ -137,7 +142,7 @@ for (const [key, [title, note]] of Object.entries(GROUPS)) {
   for (const i of items) {
     const card = el("article", "card " + i.status);
     const row = el("div", "row"); row.append(el("h3", null, i.name), el("span", "price", usd(i.price)));
-    const tag = el("span", "tag", i.status === "wanted" ? "Wanted" : i.status === "funded" ? "Funded, thank you" : "In the game");
+    const tag = el("span", "tag", ({ wanted: "Wanted", funded: "Funded, thank you", bought: "Bought, going in now", ingame: "In the game" })[i.status]);
     const where = el("p", "meta");
     if (i.link) { const a = el("a", null, i.where); a.href = i.link; a.target = "_blank"; a.rel = "noopener"; where.append(a); } else where.textContent = i.where;
     const btn = el("a", "btn", "Fund this"); btn.href = KOFI; btn.target = "_blank"; btn.rel = "noopener";
