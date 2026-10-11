@@ -32,7 +32,7 @@ body { margin: 0; background: var(--night); color: var(--text); font-family: var
 a { color: var(--sodium); }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--sodium); outline-offset: 3px; }
 .hero { position: relative; min-height: 78vh; display: grid; align-items: end; overflow: hidden; }
-.hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; max-width: none; filter: saturate(1.05) contrast(1.05); }
+.hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 72% 40%; max-width: none; filter: saturate(1.05) contrast(1.05); }
 .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13,16,17,.15) 0%, rgba(13,16,17,.35) 45%, var(--night) 96%); }
 .hero-inner { position: relative; z-index: 1; width: 100%; max-width: 1100px; margin: 0 auto; padding-inline: 16px; padding-block: 64px 48px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
 .hero .logo { position: static; width: clamp(120px, 18vw, 180px); height: auto; filter: drop-shadow(0 6px 18px rgba(0,0,0,.55)); }
@@ -52,7 +52,7 @@ h2 { font-family: var(--head); font-weight: 700; text-transform: uppercase; lett
 .item p { margin: 0; color: var(--dim); }
 .classes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
 .chip { font-family: var(--head); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; font-size: .78rem; padding: 2px 9px; background: #000; border-left: 4px solid currentColor; }
-.chip.soldier { color: #ff3b24; } .chip.heavy { color: #9070ff; } .chip.medic { color: #b2ff00; } .chip.engineer { color: #ff7a14; } .chip.infiltrator { color: #ec3cc8; } .chip.major { color: var(--silver); }
+.chip.soldier { color: #ff3b24; } .chip.heavy { color: #9070ff; } .chip.medic { color: #b2ff00; } .chip.engineer { color: #ff7a14; } .chip.infiltrator { color: #ec3cc8; } .chip.major { color: var(--silver); } .chip.executioner { color: #ff4f6d; } .chip.assault { color: #5eff4d; } .chip.corroder { color: #3fe0b0; }
 .lore { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 36px; align-items: center; }
 @media (max-width: 760px) { .lore { grid-template-columns: minmax(0, 1fr); } }
 .lore p { margin: 0 0 12px; color: var(--dim); max-width: 60ch; }
@@ -67,6 +67,15 @@ figcaption { color: var(--dim); font-size: .9rem; }
 .shots { display: grid; gap: 22px; align-content: start; }
 .shots-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 22px; align-items: start; }
 @media (max-width: 760px) { .shots-pair { grid-template-columns: minmax(0, 1fr); } }
+.latest-card { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 20px; align-items: center; background: var(--panel); border-left: 4px solid var(--sodium); padding: 14px; text-decoration: none; color: var(--text); }
+.latest-card img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; display: block; }
+.latest-text { display: grid; gap: 4px; min-width: 0; }
+.latest-text b { font-family: var(--head); font-size: 1.35rem; }
+.latest-text span { color: var(--dim); }
+.latest-date { font-family: var(--head); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: .8rem; color: var(--sodium) !important; }
+.latest-more { color: var(--sodium) !important; font-weight: 600; }
+.latest-card:hover b { color: var(--sodium); }
+@media (max-width: 560px) { .latest-card { grid-template-columns: minmax(0, 1fr); } }
 .follow { background: var(--panel); border-left: 4px solid var(--sodium); padding: 24px; display: grid; gap: 10px; }
 .follow p { margin: 0; color: var(--dim); max-width: 62ch; }
 .addr { font-family: var(--crt); font-size: 1.4rem; color: var(--text); user-select: all; }
@@ -86,12 +95,21 @@ footer div { max-width: 1100px; margin: 0 auto; padding-inline: 16px; padding-bl
     <div class="cta">
       <a class="btn solid" href="#follow">Follow the build</a>
       <a class="btn ghost" href="https://ko-fi.com/eliteonlineleague" target="_blank" rel="noopener">Support the build</a>
+      <a class="btn ghost" href="wishlist.html">The wishlist</a>
       <a class="btn ghost" href="#lore">The story</a>
     </div>
   </div>
 </section>
 
 <main>
+  <section class="latest" aria-labelledby="latesth">
+    <h2 id="latesth">Latest from the build</h2>
+    <a class="latest-card" href="https://ko-fi.com/post/Week-1-progress-the-new-map-D8P128MMQ7" target="_blank" rel="noopener">
+      <img src="img/streetfight.jpg" width="1160" height="810" alt="" loading="lazy">
+      <span class="latest-text"><span class="latest-date">October 11, 2026</span><b>Week 1 progress: the new map</b><span>A rebuilt town with real streets, photo-scanned ground, a dressed alley, turrets only explosives can kill, and dozens of new guns.</span><span class="latest-more">Read the update &rarr;</span></span>
+    </a>
+  </section>
+
   <section aria-labelledby="what">
     <h2 id="what">What it is</h2>
     <div class="dossier">
@@ -99,10 +117,11 @@ footer div { max-width: 1100px; margin: 0 auto; padding-inline: 16px; padding-bl
       <div class="item"><h3>Bases and flags</h3><p>Walled compounds with gates, corridors and turret pads. Take the flags, hold them all, and survive the countdown.</p></div>
       <div class="item"><h3>A hundred soldiers who think</h3><p>Squads with leaders, medics who come when you are hit, defenders, raiders and flag runners. Bots that dodge your grenades and push you out of doorways.</p></div>
       <div class="item"><h3>Classes you read at a glance</h3><p>Your team's colour is on your suit and your class's colour is on your armour plates, so you know what you are facing before the first shot.</p>
-        <div class="classes"><span class="chip soldier">Soldier</span><span class="chip heavy">Heavy</span><span class="chip medic">Medic</span><span class="chip engineer">Engineer</span><span class="chip infiltrator">Infiltrator</span><span class="chip major">Major</span></div></div>
-      <div class="item"><h3>Gear up at the store</h3><p>Rifles, shotguns, autocannons and plasma cannons, each in several models with their own price, sound and stats. Ammo runs out and grenades are five to a trip, so you call the dropship back to restock.</p></div>
-      <div class="item"><h3>Build the base</h3><p>Engineers carry turret crates and wall kits. Put up machine-gun turrets and walls where the fight is, and hold them until someone shoots them down.</p></div>
+        <div class="classes"><span class="chip soldier">Soldier</span><span class="chip heavy">Heavy</span><span class="chip medic">Medic</span><span class="chip engineer">Engineer</span><span class="chip infiltrator">Infiltrator</span><span class="chip major">Major</span><span class="chip executioner">Executioner</span><span class="chip assault">Assault Trooper</span><span class="chip corroder">Corroder</span></div></div>
+      <div class="item"><h3>Gear up at the store</h3><p>More than 50 weapons: rifles, shotguns, lasers, launchers, mines and a whole family of grenades, each with its own model, sound and stats. Ammo runs out and grenades are five to a trip, so you call the dropship back to restock.</p></div>
+      <div class="item"><h3>Build the base</h3><p>Engineers carry turret crates and wall kits: eight kinds of turret and walls in three strengths. Bullets bounce off a turret; only explosives bring it down, so a dug-in engineer is a real problem.</p></div>
       <div class="item"><h3>Send it back</h3><p>Turn incoming fire back on the shooter, or throw a charge behind an enemy and shove him straight into your squad's guns.</p></div>
+      <div class="item"><h3>Day, dusk and night</h3><p>Fight under a midday sun, through the long shadows of dusk, or at night under streetlights, muzzle flashes and burning wrecks.</p></div>
     </div>
   </section>
 
