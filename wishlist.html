@@ -73,10 +73,10 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
   <section class="top" aria-labelledby="t">
     <span class="eyebrow">The wishlist &middot; what the game needs next</span>
     <h1 id="t">Help build the next piece</h1>
-    <p class="lede">These are the art, animation and sound packs that would make Elite Online League look, move and sound better. Each one says what it adds to the game and what it costs. Fund the one you like, and when it's in the game you'll see it here with a screenshot.</p>
+    <p class="lede">These are the pieces the game still needs. Most of the art, animation and sound is already bought and going in. Each one says what it adds to the game and what it costs. Fund the one you like, and when it's in the game you'll see it here with a screenshot.</p>
     <div class="how">
       <div><b>1. Pick an item</b><span>Anything below, big or small.</span></div>
-      <div><b>2. Tip on Ko-fi</b><span>Write the item's name in your message, for example "for the houses".</span></div>
+      <div><b>2. Tip on Ko-fi</b><span>Write the item's name in your message, for example "for the base kit".</span></div>
       <div><b>3. See it in the game</b><span>Funded items get bought, built in and shown off here.</span></div>
     </div>
     <div class="total" aria-live="polite"><span id="sum"></span><span id="count"></span></div>
@@ -93,36 +93,11 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
 // group: "now" (the fight), "next" (the town and the match), "later" (big buys).
 const KOFI = "https://ko-fi.com/eliteonlineleague";
 const ITEMS = [
-  { group: "now",   name: "Rifle movement animations", price: 50,     adds: "Soldiers that start, stop and turn naturally instead of snapping between runs.", where: "Rifle Animset Pro, Unity Asset Store", status: "wanted" },
-  { group: "now",   name: "Sci-fi soldier armour",     price: 29.99,  adds: "Chunky helmets and armour plates that read from above, in your team's and class's colours.", where: "Sci-Fi Military Armor Pack 05, Davlet, Fab", link: "https://www.fab.com/listings/c4c0232a-65c7-491d-8ebb-01ecff05bdde", status: "wanted" },
-  { group: "now",   name: "Turret collection",         price: 34.99,  adds: "Real turrets for engineers to build: bases, heads and barrels for every turret type, in one matching style.", where: "Scifi Turret Collection II, Fab", link: "https://www.fab.com/listings/e37522fc-8b87-42f1-a039-1f8ffc32febf", status: "bought" },
-  { group: "now",   name: "Sentry gun",                price: 9.99,   adds: "A compact automatic sentry to round out the turret set.", where: "Modular Turret | Sentry Gun, Fab", link: "https://www.fab.com/listings/630b0138-1723-483a-8e23-4a68062300dd", status: "wanted" },
-  { group: "now",   name: "Sci-fi menu and store art", price: 15,     adds: "A polished store, menus and skills window.",                                  where: "Ultimate Sci-Fi UI Kit, itch.io", status: "wanted" },
-  { group: "now",   name: "Soldier base body",         price: 49.99,  adds: "A full male and female body to dress our soldiers on: every outfit, armour set and class look starts here.", where: "Quantum Modular Basemesh, Fab", link: "https://www.fab.com/listings/9ce5105d-296b-4a21-a1fa-01a2f25c4a67", status: "wanted" },
-  { group: "now",   name: "Commando headband",         price: 9.99,   adds: "The classic action-hero headband, in your team's colour.", where: "Headband, Quantum Assets, Fab", link: "https://www.fab.com/listings/318b4297-9031-43f7-9ba5-f3c4dc32e08a", status: "wanted" },
-  { group: "now",   name: "Melee animations",          price: 23,     adds: "Real sword swings, stabs, lunges and combos for every close-up kill.", where: "Human Melee Animations, Kevin Iglesias (the same rig as our soldiers)", status: "wanted" },
-  { group: "now",   name: "Bushes and grass clumps",   price: 13.98,  adds: "Fuller fields, hedges and cover between the buildings.", where: "Realistic Bushes 1 and Grass Clumps, Fab", status: "wanted" },
-  { group: "now",   name: "Photo-scanned concrete",    price: 1.98,   adds: "Real sidewalks, plazas and pads, scanned from the real thing.", where: "Megascans Concrete Sidewalk and Concrete Pavement, Fab", status: "ingame" },
-  { group: "now",   name: "Alley rats",                price: 5.99,   adds: "Rats scurrying around the dumpsters and scattering when the shooting starts.", where: "ViciousRat, itch.io (rigged, 8 animations)", link: "https://downraindc3d.itch.io/viciousrat", status: "wanted" },
-  { group: "now",   name: "Pigeons",                   price: 6.99,   adds: "Pigeons pecking on rooftops and sidewalks that burst into the air when you run past.", where: "Animated Pigeon, Fab", link: "https://www.fab.com/listings/842284fe-eb92-4831-afcf-8b69d6efa358", status: "wanted" },
-  { group: "now",   name: "Stray cats",                price: 29.99,  adds: "Stray cats prowling the town, with over 100 animations.", where: "Cats - Simple, Fab", link: "https://www.fab.com/listings/4fa9591d-945e-41be-b37b-b39e4539602a", status: "wanted" },
-  { group: "now",   name: "Evil laugh voices",         price: 10,     adds: "70 villain laughs for the Executioner's kills.", where: "Evil Laugh SFX, Dark Fantasy Studio, itch.io", status: "bought" },
-  { group: "next",  name: "Houses you can fight inside", price: 119.99, adds: "Whole neighbourhoods with interiors: room-to-room fights in the town.",    where: "Residential Houses Modular Pack, Fab", link: "https://www.fab.com/listings/01d55fcd-24f2-418b-8723-91b212912257", status: "wanted" },
-  { group: "next",  name: "Neon signs",                price: 37,     adds: "A town that glows at night, and lit trim on the bases.",                     where: "Neon Alphabet, Neon Signs and three sign packs, Fab", status: "wanted" },
-  { group: "next",  name: "Hover tank",                price: 39.99,  adds: "The first vehicle: a hover tank with a turret that turns on its own.",         where: "Tempest Hover Tank, Unity Asset Store", status: "wanted" },
-  { group: "next",  name: "80s police cruiser",        price: 9.99,   adds: "Parked cars on the town's streets, starting with one to test.",              where: "Car 19, Fab", status: "wanted" },
-  { group: "next",  name: "Church and motel",          price: 159.98, adds: "Two landmark buildings to fight around: a church and a roadside motel.",       where: "American Church and Paradise Motel, Fab", status: "wanted" },
-  { group: "next",  name: "Convenience store",         price: 59.99,  adds: "A full corner store with shelves, aisles and stock to fight through.",       where: "Convenience Store, PropHaus, Fab", link: "https://www.fab.com/listings/0d1cf768-2c43-4abe-98d8-5640d6c7903a", status: "wanted" },
-  { group: "next",  name: "Run-down video store",      price: 9.99,   adds: "A faded 90s video rental store for the edge of town.",                       where: "Blockbusted, Fab", link: "https://www.fab.com/listings/1ef954da-bc5f-4cee-b24b-26caf3c11e63", status: "wanted" },
-  { group: "next",  name: "Military containers",       price: 34.99,  adds: "Supply containers and crates to dress the bases and give cover.",            where: "Military Supplies Vol. 7, Dekogon, Fab", link: "https://www.fab.com/listings/acbb904c-6e82-4136-9ff7-11c8432930b3", status: "wanted" },
-  { group: "next",  name: "Wizard hat",                price: 5.99,   adds: "A wizard hat. You'll see.",                                                   where: "Wizard Hat, Fab", link: "https://www.fab.com/listings/d8d022be-512a-42f8-bc67-2cbdf8e2ac6b", status: "wanted" },
-  { group: "later", name: "Full rifle motion capture", price: 149.99, adds: "Hundreds of professional rifle moves: walks, strafes, crouches and aims.",     where: "MoCap Online Rifle pack", status: "wanted" },];
-// What we're still looking for: no listing yet that works in our engine.
-const LOOKING = [
-  ["A gritty city alley", "back alleys, fire escapes, dumpsters and street props for the town's edges"],
-  ["A stadium", "stands, dugouts and an open field to fight across"],
-  ["A sci-fi base kit", "modular walls, rocks and props for a space or asteroid map"],
+  { group: "next",  name: "Military base kit",          price: 99.99,  adds: "Hangars, bunkers, walls and gates for the military bases, once the big map needs them.", where: "Military Base Megapack, Hivemind, Unity Asset Store (or Dekogon's Security Checkpoint, $34.99)", link: "https://assetstore.unity.com/packages/package/372662", status: "wanted" },
+  { group: "later", name: "A fast portable drive",      price: 190,    adds: "A 1 TB drive to back up the game and its art library, and carry the build between PCs.", where: "Samsung T7 Portable SSD, 1 TB: about $190 now, past sales $70-110; buy on a sale after payday", status: "wanted" },
 ];
+// What we're still looking for: no listing yet that works in our engine.
+const LOOKING = [];
 const GROUPS = {
   now:   ["Now: the fight", "What makes the first 30 seconds of a fight look and feel right."],
   next:  ["Next: the town and the match", "The places, vehicles and details of a full match."],
@@ -132,7 +107,8 @@ const usd = n => "$" + n.toLocaleString("en-US", { minimumFractionDigits: n % 1 
 const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
 const wanted = ITEMS.filter(i => i.status === "wanted");
 document.getElementById("sum").textContent = "STILL NEEDED: " + usd(wanted.reduce((s, i) => s + i.price, 0));
-document.getElementById("count").textContent = wanted.length + " ITEMS WANTED · " + (ITEMS.length - wanted.length) + " BOUGHT";
+const bought = ITEMS.length - wanted.length;
+document.getElementById("count").textContent = wanted.length + (wanted.length === 1 ? " ITEM" : " ITEMS") + " WANTED" + (bought ? " · " + bought + " BOUGHT" : "");
 const root = document.getElementById("groups");
 for (const [key, [title, note]] of Object.entries(GROUPS)) {
   const items = ITEMS.filter(i => i.group === key);
@@ -152,11 +128,13 @@ for (const [key, [title, note]] of Object.entries(GROUPS)) {
   }
   sec.append(grid); root.append(sec);
 }
+if (LOOKING.length) {
 const look = el("section"); look.setAttribute("aria-label", "Still looking for");
 look.append(el("h2", null, "Still looking for"), el("p", "group-note", "We want these too, but haven't found a version that works in our engine yet. Know a good one? Tell us."));
 const ul = el("ul", "looking");
 for (const [what, why] of LOOKING) { const li = el("li"); li.append(el("b", null, what), document.createTextNode(": " + why)); ul.append(li); }
 look.append(ul); root.append(look);
+}
 </script>
 </body>
 </html>
