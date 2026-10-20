@@ -6,7 +6,7 @@
 <meta name="description" content="Elite Online League: an old-school top-down team shooter, rebuilt modern. Bases, flags, bounty on every head. Extremely early build, updated daily.">
 <meta property="og:title" content="Elite Online League">
 <meta property="og:description" content="Every kill has a price on its head. A top-down team shooter in development.">
-<meta property="og:image" content="https://eliteonlineleague.com/img/townfight.jpg">
+<meta property="og:image" content="https://eliteonlineleague.com/img/squarefight.jpg">
 <title>Elite Online League</title>
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="img/logo.png">
@@ -32,7 +32,7 @@ body { margin: 0; background: var(--night); color: var(--text); font-family: var
 a { color: var(--sodium); }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--sodium); outline-offset: 3px; }
 .hero { position: relative; min-height: 78vh; display: grid; align-items: end; overflow: hidden; }
-.hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; max-width: none; filter: saturate(1.05) contrast(1.05); }
+.hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 45%; max-width: none; filter: saturate(1.05) contrast(1.05); }
 .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13,16,17,.15) 0%, rgba(13,16,17,.35) 45%, var(--night) 96%); }
 @media (max-width: 760px) { .hero::after { background: linear-gradient(180deg, rgba(13,16,17,.25) 0%, rgba(13,16,17,.7) 30%, rgba(13,16,17,.88) 60%, var(--night) 96%); } }
 .hero-inner { position: relative; z-index: 1; width: 100%; max-width: 1100px; margin: 0 auto; padding-inline: 16px; padding-block: 64px 48px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
@@ -63,7 +63,7 @@ h2 { font-family: var(--head); font-weight: 700; text-transform: uppercase; lett
 @keyframes blink { 50% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .crt .cursor { animation: none; } }
 figure { margin: 0; display: grid; gap: 8px; }
-figure img { width: 100%; height: auto; border: 1px solid var(--rule); display: block; }
+figure img, figure video { width: 100%; height: auto; border: 1px solid var(--rule); display: block; }
 figcaption { color: var(--dim); font-size: .9rem; }
 .shots { display: grid; gap: 22px; align-content: start; }
 .shots-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 22px; align-items: start; }
@@ -86,7 +86,7 @@ footer div { max-width: 1100px; margin: 0 auto; padding-inline: 16px; padding-bl
 </head>
 <body>
 <section class="hero" aria-label="Elite Online League">
-  <img src="img/townfight.jpg" alt="A firefight up the main street of the town seen from above: a green repulsor blast, soldiers trading fire, shop signs for a realty office, a corner market and a sports bar">
+  <img src="img/squarefight.jpg" alt="A night brawl in the town square seen from above: dozens of soldiers in two teams colliding by the fountain, muzzle flashes, blood on the paving and shop signs along the street">
   <div class="hero-inner">
     <img class="logo" src="img/logo.png" width="512" height="512" alt="EOL '92 logo: chunky EOL letters on a blue and green globe, Elite Online League around the bottom">
     <span class="eyebrow">Top-down team warfare &middot; extremely early build &middot; updated daily</span>
@@ -131,12 +131,13 @@ footer div { max-width: 1100px; margin: 0 auto; padding-inline: 16px; padding-bl
   <section aria-labelledby="looks">
     <h2 id="looks">First looks</h2>
     <div class="shots">
+      <figure><video src="img/squarefight.mp4" poster="img/squarefight-poster.jpg" width="1280" height="720" autoplay muted loop playsinline preload="metadata" aria-label="Two teams collide in the town square at night: a 12-second clip of a crowd fight around the fountain"></video><figcaption>Two teams collide in the town square at night. Recorded in play on October 19. Extremely early build.</figcaption></figure>
       <figure><img src="img/fight.jpg" width="1320" height="665" alt="A night firefight at base A's gate: tracers and a plasma flash outside the wall, a dozen soldiers holding the yard around the purple flag pads" loading="lazy"><figcaption>Holding all four flags at base A, mid-fight. Recorded in play. Early build.</figcaption></figure>
       <figure><img src="img/soldiers.jpg" width="1715" height="360" alt="Seven armoured soldiers seen from above, alternating black and white suits, with red, cyan, pink and green helmets and shoulder plates" loading="lazy"><figcaption>The soldiers up close: one team in black, one in white, with the class colour on the plates. Early build; colours not final.</figcaption></figure>
       <div class="shots-pair">
         <figure><img src="img/town.jpg" width="1920" height="1080" alt="The town from above: the main street with shop signs for a realty office, a corner market, a sports bar, a diner, a bowling alley and an auto repair shop, and a flag yard below" loading="lazy"><figcaption>The rebuilt town, with every shop sign our own. Recorded in play this week.</figcaption></figure>
         <div class="shots">
-          <figure><img src="img/townfight2.jpg" width="1920" height="1080" alt="Soldiers fighting up the town's main street while a team holds its flag yard below" loading="lazy"><figcaption>A fight working its way down the main street. Extremely early build.</figcaption></figure>
+          <figure><img src="img/squareview.jpg" width="1920" height="1080" alt="The town square from above at night, with fights spilling into the streets and shop fronts on every side" loading="lazy"><figcaption>The square from above, with the fight spilling into the streets. Recorded in play on October 19.</figcaption></figure>
         </div>
       </div>
     </div>
