@@ -6,7 +6,7 @@
 <meta name="description" content="Elite Online League: an old-school top-down team shooter, rebuilt modern. Bases, flags, bounty on every head. Extremely early build, updated daily.">
 <meta property="og:title" content="Elite Online League">
 <meta property="og:description" content="Every kill has a price on its head. A top-down team shooter in development.">
-<meta property="og:image" content="https://eliteonlineleague.com/img/fourteams.jpg">
+<meta property="og:image" content="https://eliteonlineleague.com/img/still01-1119.jpg">
 <title>Elite Online League</title>
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="img/logo.png">
@@ -32,7 +32,7 @@ body { margin: 0; background: var(--night); color: var(--text); font-family: var
 a { color: var(--sodium); }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--sodium); outline-offset: 3px; }
 .hero { position: relative; min-height: 78vh; display: grid; align-items: end; overflow: hidden; }
-.hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 45%; max-width: none; filter: saturate(1.05) contrast(1.05); }
+.hero > img, .hero > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 45%; max-width: none; filter: saturate(1.05) contrast(1.05); }
 .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13,16,17,.15) 0%, rgba(13,16,17,.35) 45%, var(--night) 96%); }
 @media (max-width: 760px) { .hero::after { background: linear-gradient(180deg, rgba(13,16,17,.25) 0%, rgba(13,16,17,.7) 30%, rgba(13,16,17,.88) 60%, var(--night) 96%); } }
 .hero-inner { position: relative; z-index: 1; width: 100%; max-width: 1100px; margin: 0 auto; padding-inline: 16px; padding-block: 64px 48px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
@@ -77,6 +77,16 @@ figcaption { color: var(--dim); font-size: .9rem; }
 .latest-more { color: var(--sodium) !important; font-weight: 600; }
 .latest-card:hover b { color: var(--sodium); }
 @media (max-width: 560px) { .latest-card { grid-template-columns: minmax(0, 1fr); } }
+.update { background: var(--panel); border-left: 4px solid var(--sodium); padding: 22px 24px; display: grid; gap: 10px; }
+.update h3 { font-family: var(--head); font-weight: 700; font-size: 1.6rem; margin: 0; }
+.update p { margin: 0; color: var(--dim); max-width: 62ch; }
+.tag { display: inline-block; font-family: var(--head); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: .75rem; color: var(--sodium-ink); background: var(--sodium); padding: 1px 8px; justify-self: start; }
+.gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 760px) { .gallery { grid-template-columns: minmax(0, 1fr); } }
+.features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 860px) { .features { grid-template-columns: minmax(0, 1fr); } }
+.features figcaption b { display: block; color: var(--text); font-family: var(--head); font-size: 1.15rem; }
+.older { margin-top: 18px; }
 .follow { background: var(--panel); border-left: 4px solid var(--sodium); padding: 24px; display: grid; gap: 10px; }
 .follow p { margin: 0; color: var(--dim); max-width: 62ch; }
 .addr { font-family: var(--crt); font-size: 1.4rem; color: var(--text); user-select: all; }
@@ -86,10 +96,10 @@ footer div { max-width: 1100px; margin: 0 auto; padding-inline: 16px; padding-bl
 </head>
 <body>
 <section class="hero" aria-label="Elite Online League">
-  <img src="img/fourteams.jpg" alt="A daytime street fight at a crosswalk with the full HUD: the scoreboard lists four teams and the Breach, a flag-taken banner at the top, the inventory and weapon panels on the right">
+  <video src="img/gameplay-1119.mp4" poster="img/still01-1119.jpg" width="1280" height="720" autoplay muted loop playsinline preload="auto" aria-label="48 seconds of pre-alpha gameplay: street fights across the city, the dropship recall, the ping system and the death screen"><img src="img/fight1-1119.gif" alt="A looping street firefight from the pre-alpha build"></video>
   <div class="hero-inner">
     <img class="logo" src="img/logo.png" width="512" height="512" alt="EOL '92 logo: chunky EOL letters on a blue and green globe, Elite Online League around the bottom">
-    <span class="eyebrow">Top-down team warfare &middot; extremely early build &middot; updated daily</span>
+    <span class="eyebrow">Top-down team warfare &middot; pre-alpha &middot; work in progress</span>
     <h1>Elite Online League</h1>
     <p class="tagline">Every kill has a price on its head.</p>
     <p class="lede">An old-school top-down team shooter, rebuilt modern. Hold the bases, run the flags, hunt the biggest bounty on the board, and fight beside a hundred soldiers who think.</p>
@@ -105,6 +115,24 @@ footer div { max-width: 1100px; margin: 0 auto; padding-inline: 16px; padding-bl
 <main>
   <section class="latest" aria-labelledby="latesth">
     <h2 id="latesth">Latest from the build</h2>
+    <div class="update">
+      <span class="tag">Pre-alpha &middot; November 19, 2026</span>
+      <h3>First gameplay - pre-alpha</h3>
+      <p>Night city firefights, 60 soldiers, dropship recall and more. Still early, with months to go, but here's where we are.</p>
+      <div class="cta"><a class="btn solid" href="https://ko-fi.com/eliteonlineleague" target="_blank" rel="noopener">Support on Ko-fi</a><a class="btn ghost" href="#follow">Follow the build</a></div>
+    </div>
+    <div class="gallery older" role="list" aria-label="Pre-alpha stills">
+      <figure role="listitem"><img src="img/still01-1119.jpg" width="1920" height="1080" alt="A street fight outside the pawn shop and the video store, seen from above with the full in-game HUD" loading="lazy"><figcaption>A street fight outside the pawn shop. Pre-alpha.</figcaption></figure>
+      <figure role="listitem"><img src="img/still03-1119.jpg" width="1920" height="1080" alt="A firefight at a city crossroads: soldiers from several teams trading fire across the crosswalks, with an explosion in the middle" loading="lazy"><figcaption>A firefight at the crossroads. Pre-alpha.</figcaption></figure>
+      <figure role="listitem"><img src="img/still05-1119.jpg" width="1920" height="1080" alt="The death screen over a fight along a store wall: who killed you, the bounty you lost and the respawn countdown" loading="lazy"><figcaption>The death screen: who got you, the bounty you lost, and the respawn timer. Pre-alpha.</figcaption></figure>
+      <figure role="listitem"><img src="img/still07-1119.jpg" width="1920" height="1080" alt="A base yard seen from above, ringed by machine-gun and rocket turrets, with soldiers moving in at the bottom" loading="lazy"><figcaption>A base yard guarded by turrets. Pre-alpha.</figcaption></figure>
+    </div>
+    <div class="features older">
+      <figure><video src="img/recall-1119.mp4" poster="img/recall-1119-poster.jpg" width="560" height="316" autoplay muted loop playsinline preload="metadata" aria-label="A soldier is recalled by the dropship and returns to the home base"></video><figcaption><b>Dropship recall to home base</b>Pre-alpha, work in progress.</figcaption></figure>
+      <figure><video src="img/ping-1119.mp4" poster="img/ping-1119-poster.jpg" width="560" height="316" autoplay muted loop playsinline preload="metadata" aria-label="A player places pings on the map for the team"></video><figcaption><b>Ping system</b>Pre-alpha, work in progress.</figcaption></figure>
+      <figure><video src="img/streetfight-1119.mp4" poster="img/streetfight-1119-poster.jpg" width="560" height="316" autoplay muted loop playsinline preload="metadata" aria-label="A crowded street fight at a city intersection"></video><figcaption><b>60-soldier city fights</b>Pre-alpha, work in progress.</figcaption></figure>
+    </div>
+    <h2 class="older">Earlier</h2>
     <a class="latest-card" href="https://ko-fi.com/post/Weeks-2-4-four-teams-the-store-and-night-fights-K5W72A0KYP" target="_blank" rel="noopener">
       <img src="img/fourteams.jpg" width="1920" height="1080" alt="" loading="lazy">
       <span class="latest-text"><span class="latest-date">November 4, 2026</span><b>Weeks 2-4: four teams, the store and night fights</b><span>Four teams and the Breach on one field, a store with 120+ weapons, classes and command ranks, and night fights in the compounds.</span><span class="latest-more">Read the update &rarr;</span></span>
