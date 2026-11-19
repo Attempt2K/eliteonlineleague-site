@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="The Elite Online League wishlist: the art, animation and sound that would make the game better, and how to help fund each piece.">
+<meta name="description" content="The Elite Online League wishlist: the pieces the game still needs, what each one adds, and how to help fund it.">
 <meta property="og:title" content="Elite Online League: the wishlist">
 <meta property="og:description" content="Help fund the next piece of the game. Every item, what it adds, and what it costs.">
-<meta property="og:image" content="https://eliteonlineleague.com/img/fourteams.jpg">
+<meta property="og:image" content="https://eliteonlineleague.com/img/still01-1119.jpg">
 <title>EOL Wishlist</title>
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="img/logo.png">
@@ -14,92 +14,92 @@
 <script data-goatcounter="https://eliteonlineleague.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&family=Barlow+Semi+Condensed:wght@500;700&family=Archivo:wght@400;500;600&family=VT323&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap">
 <style>
-/* Layout: the landing page's night briefing, as a requisition sheet - a short header, the running total, then one ruled card per item grouped by when the game needs it. */
+/* Layout: the landing page's terminal, as a requisition printout - a short header, the running total, then one card per item grouped by when the game needs it. */
 :root {
-  --night: #0d1011; --asphalt: #161b1d; --panel: #1b2124; --rule: #2b3336;
-  --text: #e9ece8; --dim: #a3aca8; --sodium: #f3a33c; --sodium-ink: #1a1206;
-  --phosphor: #8dfc9f; --silver: #c9d1d6;
-  --stencil: "Saira Stencil One", "Impact", "Arial Narrow", sans-serif;
-  --head: "Barlow Semi Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
-  --body: "Archivo", "Segoe UI", system-ui, sans-serif;
+  --void: #020604; --term: #050c07; --panel: #071209; --rule: #12301a;
+  --green: #39ff6a; --phos: #8dfc9f; --dim: #5f9c6c; --faint: #2c5a38;
+  --amber: #ffb000; --amber-ink: #1a1000;
   --crt: "VT323", "Lucida Console", Consolas, monospace;
+  --mono: "Share Tech Mono", "Lucida Console", Consolas, monospace;
   color-scheme: dark;
 }
 *, *::before, *::after { box-sizing: border-box; }
-body { margin: 0; background: var(--night); color: var(--text); font-family: var(--body); font-size: 17px; line-height: 1.6; }
-a { color: var(--sodium); }
-a:focus-visible { outline: 2px solid var(--sodium); outline-offset: 3px; }
-.wrap { max-width: 1100px; margin: 0 auto; padding-inline: 16px; }
-header { border-bottom: 1px solid var(--rule); }
-header .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; justify-content: space-between; padding-block: 16px; }
-.brand { font-family: var(--stencil); font-size: 1.5rem; color: var(--text); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
-.top { padding-block: 48px 24px; display: grid; gap: 14px; }
-.eyebrow { font-family: var(--head); font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--sodium); font-size: .9rem; }
-h1 { font-family: var(--stencil); font-weight: 400; font-size: clamp(2.1rem, 7vw, 4.4rem); line-height: .95; margin: 0; }
+html { background: var(--void); }
+body { margin: 0; background: var(--void); color: var(--phos); font-family: var(--mono); font-size: 16.5px; line-height: 1.65; }
+body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 50; background: repeating-linear-gradient(180deg, rgba(0,0,0,0) 0 2px, rgba(0,0,0,.22) 2px 3px); }
+body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 49; background: radial-gradient(ellipse at center, rgba(0,0,0,0) 60%, rgba(0,0,0,.55) 100%); }
+a { color: var(--green); }
+a:focus-visible { outline: 2px dashed var(--amber); outline-offset: 3px; }
+.glow { text-shadow: 0 0 6px rgba(57,255,106,.55), 0 0 18px rgba(57,255,106,.18); }
+.wrap { max-width: 1000px; margin: 0 auto; padding-inline: 16px; }
+header { border-bottom: 1px solid var(--rule); background: var(--panel); }
+header .wrap { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-block: 10px; flex-wrap: wrap; font-family: var(--crt); font-size: 1.25rem; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--green); text-decoration: none; text-transform: uppercase; }
+.brand img { width: 40px; height: 40px; }
+.top { padding-block: 40px 20px; display: grid; gap: 14px; }
+.path { font-family: var(--crt); font-size: 1.2rem; color: var(--dim); }
+h1 { font-family: var(--crt); font-weight: 400; font-size: clamp(2.4rem, 8vw, 4.6rem); line-height: .9; margin: 0; color: var(--green); text-transform: uppercase; }
 .lede { color: var(--dim); max-width: 64ch; margin: 0; }
-.how { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0 32px; border-top: 2px solid var(--rule); margin-top: 10px; }
-.how div { padding-block: 14px; border-bottom: 1px solid var(--rule); }
-.how b { font-family: var(--head); font-size: 1.1rem; display: block; }
+.how { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 720px) { .how { grid-template-columns: minmax(0, 1fr); } }
+.how div { border: 1px dashed var(--rule); padding: 10px 12px; display: grid; gap: 2px; }
+.how b { font-family: var(--crt); font-weight: 400; font-size: 1.35rem; color: var(--phos); }
 .how span { color: var(--dim); font-size: .95rem; }
-.total { display: flex; flex-wrap: wrap; gap: 8px 28px; align-items: baseline; font-family: var(--crt); font-size: 1.35rem; color: var(--phosphor); padding-block: 18px; }
-h2 { font-family: var(--head); font-weight: 700; text-transform: uppercase; letter-spacing: .14em; font-size: 1rem; color: var(--sodium); margin: 40px 0 6px; }
-.group-note { color: var(--dim); margin: 0 0 14px; max-width: 64ch; }
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 16px; }
-.card { background: var(--panel); border-left: 4px solid var(--sodium); padding: 18px 18px 16px; display: grid; gap: 8px; align-content: start; min-width: 0; }
-.card.funded { border-left-color: var(--phosphor); }
-.card.bought, .card.ingame { border-left-color: var(--silver); opacity: .8; }
-.row { display: flex; gap: 12px; justify-content: space-between; align-items: baseline; }
-.card h3 { font-family: var(--head); font-weight: 700; font-size: 1.3rem; margin: 0; line-height: 1.2; }
-.price { font-family: var(--crt); font-size: 1.5rem; color: var(--text); white-space: nowrap; }
-.adds { margin: 0; color: var(--text); }
-.meta { margin: 0; color: var(--dim); font-size: .88rem; }
-.tag { font-family: var(--head); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; font-size: .75rem; color: var(--sodium); }
-.card.funded .tag { color: var(--phosphor); }
-.card.bought .tag, .card.ingame .tag { color: var(--silver); }
-.btn { justify-self: start; display: inline-flex; align-items: center; font-family: var(--head); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; padding: 9px 14px; border-radius: 2px; border: 2px solid var(--sodium); background: var(--sodium); color: var(--sodium-ink); margin-top: 4px; }
-.card.funded .btn, .card.bought .btn, .card.ingame .btn { display: none; }
-.looking { margin: 0; padding-left: 20px; color: var(--dim); display: grid; gap: 6px; }
-.looking b { color: var(--text); font-weight: 600; }
-footer { border-top: 1px solid var(--rule); color: var(--dim); font-size: .85rem; margin-top: 64px; }
-footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; padding-block: 22px; }
+.total { display: flex; flex-wrap: wrap; gap: 8px 24px; font-family: var(--crt); font-size: 1.5rem; color: var(--amber); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding-block: 8px; }
+h2 { font-family: var(--crt); font-weight: 400; font-size: 1.75rem; color: var(--green); margin: 36px 0 2px; text-transform: uppercase; }
+.group-note { margin: 0 0 14px; color: var(--dim); }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; }
+.card { background: var(--term); border: 1px solid var(--rule); padding: 16px 18px; display: grid; gap: 8px; align-content: start; box-shadow: 0 0 24px rgba(57,255,106,.05) inset; }
+.tag { justify-self: start; font-family: var(--crt); font-size: 1.05rem; color: var(--amber-ink); background: var(--amber); padding: 0 8px; letter-spacing: .06em; text-transform: uppercase; }
+.row { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.card h3 { font-family: var(--crt); font-weight: 400; font-size: 1.6rem; line-height: 1.05; margin: 0; color: var(--phos); }
+.price { font-family: var(--crt); font-size: 1.6rem; color: var(--green); white-space: nowrap; }
+.adds { margin: 0; color: var(--dim); }
+.meta { margin: 0; color: var(--faint); font-size: .9rem; }
+.meta::before { content: "// "; }
+.btn { justify-self: start; font-family: var(--crt); font-size: 1.3rem; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; padding: 4px 14px; background: var(--green); color: var(--void); margin-top: 4px; }
+.btn::before { content: "> "; }
+.btn:hover { background: var(--phos); }
+.done { border-top: 1px dashed var(--rule); margin-top: 40px; padding-top: 16px; color: var(--dim); }
+.done b { font-family: var(--crt); font-weight: 400; font-size: 1.4rem; color: var(--phos); }
+footer { border-top: 1px solid var(--rule); color: var(--faint); font-family: var(--crt); font-size: 1.1rem; margin-top: 56px; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; padding-block: 18px; }
+footer a { color: var(--dim); }
 </style>
 </head>
 <body>
-<header><div class="wrap"><a class="brand" href="/"><img src="img/logo.png" width="44" height="44" alt="">Elite Online League</a><a href="https://ko-fi.com/eliteonlineleague" target="_blank" rel="noopener">Support on Ko-fi</a></div></header>
+<header><div class="wrap"><a class="brand" href="/"><img src="img/logo.png" width="44" height="44" alt="">Elite Online League</a><a href="https://ko-fi.com/eliteonlineleague" target="_blank" rel="noopener">&gt; Support on Ko-fi</a></div></header>
 
 <main class="wrap">
   <section class="top" aria-labelledby="t">
-    <span class="eyebrow">The wishlist &middot; what the game needs next</span>
-    <h1 id="t">Help build the next piece</h1>
-    <p class="lede">These are the pieces the game still needs. Most of the art, animation and sound is already bought and going in. Each one says what it adds to the game and what it costs. Fund the one you like, and when it's in the game you'll see it here with a screenshot.</p>
+    <span class="path">C:\EOL\WISHLIST&gt; DIR /NEEDED</span>
+    <h1 id="t" class="glow">Help build the next piece</h1>
+    <p class="lede">These are the pieces the game still needs. Most of the art, animation and sound is already bought and going in. Each item says what it adds to the game and what it costs. Fund the one you like, and when it's in the game you'll see it here.</p>
     <div class="how">
       <div><b>1. Pick an item</b><span>Anything below, big or small.</span></div>
       <div><b>2. Tip on Ko-fi</b><span>Write the item's name in your message, for example "for the houses".</span></div>
       <div><b>3. See it in the game</b><span>Funded items get bought, built in and shown off here.</span></div>
     </div>
-    <div class="total" aria-live="polite"><span id="sum"></span><span id="count"></span></div>
+    <div class="total glow" aria-live="polite"><span id="sum"></span><span id="count"></span></div>
   </section>
 
   <div id="groups"></div>
+
+  <p class="done"><b>Already bought, thank you:</b> the military checkpoint kit and the crashed alien ship are in the build. Every tip so far has gone into the game.</p>
 </main>
 
-<footer><div class="wrap"><span>&copy; 2026 Elite Online League</span><a href="/">eliteonlineleague.com</a></div></footer>
+<footer><div class="wrap"><span>&copy; 2026 ELITE ONLINE LEAGUE // EOL.SYS</span><a href="/">ELITEONLINELEAGUE.COM</a></div></footer>
 
 <script>
-// The wishlist. To add an item, copy a line and change it.
-// status: "wanted", "funded" (a supporter paid for it), "bought" (bought, going in now) or "ingame" (in the game).
+// The wishlist. To add an item, copy a line and change it. Bought items come off this list.
 // group: "now" (the fight), "next" (the town and the match), "later" (big buys).
 const KOFI = "https://ko-fi.com/eliteonlineleague";
 const ITEMS = [
-  { group: "next",  name: "Military checkpoint kit",    price: 24.49,  adds: "HESCO walls, sandbags, wire, a guard booth and barriers: the army's quarantine line around the crash.", where: "Military Supplies VOL.3 - Security Checkpoint, Dekogon Studios, Fab", status: "bought" },
-  { group: "next",  name: "The crashed ship",           price: 19.99,  adds: "The wreck the aliens live in: a walk-in hull with pods, tanks and iris doors, outside and in.", where: "MOTHERSHIP - Crashed Alien Hive Ship, SoulDesignStudio, Fab", status: "bought" },
-  { group: "next",  name: "Houses for the neighbourhood", price: 119.99, adds: "A thousand-piece kit for real houses with porches, yards and full interiors, so the fight can spill off main street into the homes.", where: "Residential Houses - Modular Pack, PropHaus, Fab", link: "https://www.fab.com/listings/01d55fcd-24f2-418b-8723-91b212912257", status: "wanted" },
-  { group: "later", name: "A fast portable drive",      price: 190,    adds: "A 1 TB drive to back up the game and its art library, and carry the build between PCs.", where: "Samsung T7 Portable SSD, 1 TB: about $190 now, past sales $70-110; buy on a sale after payday", status: "wanted" },
+  { group: "next",  name: "Houses for the neighbourhood", price: 119.99, adds: "A thousand-piece kit for real houses with porches, yards and full interiors, so the fight can spill off main street into the homes.", where: "Residential Houses - Modular Pack, PropHaus, Fab", link: "https://www.fab.com/listings/01d55fcd-24f2-418b-8723-91b212912257" },
+  { group: "later", name: "A fast portable drive",        price: 190,    adds: "A 1 TB drive to back up the game and its art library, and carry the build between PCs.", where: "Samsung T7 Portable SSD, 1 TB: about $190 now, past sales $70-110; bought on a sale" },
 ];
-// What we're still looking for: no listing yet that works in our engine.
-const LOOKING = [];
 const GROUPS = {
   now:   ["Now: the fight", "What makes the first 30 seconds of a fight look and feel right."],
   next:  ["Next: the town and the match", "The places, vehicles and details of a full match."],
@@ -107,35 +107,25 @@ const GROUPS = {
 };
 const usd = n => "$" + n.toLocaleString("en-US", { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 });
 const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
-const wanted = ITEMS.filter(i => i.status === "wanted");
-document.getElementById("sum").textContent = "STILL NEEDED: " + usd(wanted.reduce((s, i) => s + i.price, 0));
-const bought = ITEMS.length - wanted.length;
-document.getElementById("count").textContent = wanted.length + (wanted.length === 1 ? " ITEM" : " ITEMS") + " WANTED" + (bought ? " · " + bought + " BOUGHT" : "");
+document.getElementById("sum").textContent = "> STILL NEEDED: " + usd(ITEMS.reduce((s, i) => s + i.price, 0));
+document.getElementById("count").textContent = ITEMS.length + (ITEMS.length === 1 ? " ITEM" : " ITEMS") + " WANTED";
 const root = document.getElementById("groups");
 for (const [key, [title, note]] of Object.entries(GROUPS)) {
   const items = ITEMS.filter(i => i.group === key);
   if (!items.length) continue;
   const sec = el("section"); sec.setAttribute("aria-label", title);
-  sec.append(el("h2", null, title), el("p", "group-note", note));
+  sec.append(el("h2", "glow", title), el("p", "group-note", note));
   const grid = el("div", "grid");
   for (const i of items) {
-    const card = el("article", "card " + i.status);
+    const card = el("article", "card");
     const row = el("div", "row"); row.append(el("h3", null, i.name), el("span", "price", usd(i.price)));
-    const tag = el("span", "tag", ({ wanted: "Wanted", funded: "Funded, thank you", bought: "Bought, going in now", ingame: "In the game" })[i.status]);
     const where = el("p", "meta");
     if (i.link) { const a = el("a", null, i.where); a.href = i.link; a.target = "_blank"; a.rel = "noopener"; where.append(a); } else where.textContent = i.where;
     const btn = el("a", "btn", "Fund this"); btn.href = KOFI; btn.target = "_blank"; btn.rel = "noopener";
-    card.append(tag, row, el("p", "adds", i.adds), where, btn);
+    card.append(el("span", "tag", "Wanted"), row, el("p", "adds", i.adds), where, btn);
     grid.append(card);
   }
   sec.append(grid); root.append(sec);
-}
-if (LOOKING.length) {
-const look = el("section"); look.setAttribute("aria-label", "Still looking for");
-look.append(el("h2", null, "Still looking for"), el("p", "group-note", "We want these too, but haven't found a version that works in our engine yet. Know a good one? Tell us."));
-const ul = el("ul", "looking");
-for (const [what, why] of LOOKING) { const li = el("li"); li.append(el("b", null, what), document.createTextNode(": " + why)); ul.append(li); }
-look.append(ul); root.append(look);
 }
 </script>
 </body>
